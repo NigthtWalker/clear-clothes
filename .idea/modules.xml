@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/clear-clothes.iml" filepath="$PROJECT_DIR$/clear-clothes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clearclothescore/clear-clothes-core.iml" filepath="$PROJECT_DIR$/clearclothescore/clear-clothes-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clearclothesfront/clear-clothes-front.iml" filepath="$PROJECT_DIR$/clearclothesfront/clear-clothes-front.iml" />
     </modules>
   </component>
 </project>

@@ -3,9 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nexus</groupId>
   <artifactId>clear-clothes</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>clear-clothes Maven Webapp</name>
+  <modules>
+    <module>clearclothescore</module>
+    <module>clearclothesfront</module>
+  </modules>
+  <name>clear-clothes</name>
   <url>http://maven.apache.org</url>
 
 
@@ -15,47 +19,45 @@
     <version>1.5.2.RELEASE</version>
   </parent>
 
+  <properties>
+    <java.version>1.8</java.version>
+    <springframework.version>4.3.8.RELEASE</springframework.version>
+    <complier.plugin.version>3.7.0</complier.plugin.version>
+  </properties>
+
 
 
   <dependencies>
+
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <groupId>nexus</groupId>
+      <artifactId>clear-clothes-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>nexus</groupId>
+      <artifactId>clear-clothes-front</artifactId>
+      <version>${project.version}</version>
     </dependency>
 
 
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
 
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.7</version>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.9.9</version>
     </dependency>
 
 
   </dependencies>
 
 
-  <properties>
-    <java.version>1.8</java.version>
-  </properties>
 
 
   <build>
@@ -67,6 +69,36 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+
+
+      <!--打包插件 - 指定 java 版本-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${complier.plugin.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+      <!--打包插件 - 指定 java 版本-->
+      <!--骨架插件-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+      <!--骨架插件-->
+      <!-- war打包插件, 设定war包名称不带版本号 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <warName>${project.artifactId}</warName>
+        </configuration>
+      </plugin>
+
     </plugins>
 
 

@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="clear-clothes" />
+        <module name="clear-clothes-core" />
+        <module name="clear-clothes-front" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="clear-clothes" target="1.8" />
+      <module name="clear-clothes-core" target="1.8" />
+      <module name="clear-clothes-front" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
